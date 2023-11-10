@@ -48,7 +48,7 @@ score, sentence_score = scorer.faithscore(answers, images)
 ```
 Parameters for FaithScore class:
 - `--vem_type`: [ofa-ve, ofa, llava].
-- `--model_path`: The model name or model folder for the visual entailment model. If you set vem_type llava, please set this parameter as the model folder for LLaVA 1.5. You can set it as None for other situations.
+- `--model_path`: The model name or model folder for the visual entailment model. If you set vem_type as llava, please set this parameter as the model folder for LLaVA 1.5. You can set it as None for other situations.
 - `--api_key`: OpenAI API Key.
 - `--llava_path`: The model folder for LLaVA 1.5. 
 - `--use_llama`: Whether use llave to achieve sub-sentence identification. If it is False, the code uses ChatGPT for this stage. 
