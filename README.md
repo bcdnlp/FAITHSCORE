@@ -56,3 +56,5 @@ The data is given in a json format file. For example,
 In the stage 1, "1" denotes descriptive sub-sentence, "0" denotes analytical sub-sentence.
 
 In the stage 2, "1" denotes the content is hallucination, "0" denotes the content is not hallucination.
+
+You can download our [annotation dataset](https://github.com/bcdnlp/FAITHSCORE/blob/main/annotation.jsonl).
