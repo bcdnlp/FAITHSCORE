@@ -40,13 +40,21 @@ from faithscore.framework import FaithScore
 images = ["./COCO_val2014_000000164255.jpg"]
 answers = ["The main object in the image is a colorful beach umbrella."]
 
-vemodel = "damo/ofa_visual-entailment_snli-ve_large_en"
+vemodel = "xxx"
 scorer = FaithScore(vem_type="llava", model_path=vemodel, api_key="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",
                    llava_path="/home/lxj220018/llava15/llava/eval/checkpoints/llava-v1.5-13b", use_llama=False,
-                   llama_path="/home/data/llama2/llama-2-7b-hf", tokenzier_path="/home/data/llama2/tokenizer.model")
+                   llama_path="/home/data/llama2/llama-2-7b-hf")
 score, sentence_score = scorer.faithscore(answers, images)
 
 ```
+Parameters for FaithScore class:
+- `--vem_type`: [ofa-ve, ofa, llava].
+- `--model_path`: The model name or model folder for the visual entailment model. If you set vem_type llava, please set this parameter as the model folder for LLaVA 1.5. You can set it as None for other situations.
+- `--api_key`: OpenAI API Key.
+- `--llava_path`: The model folder for LLaVA 1.5. 
+- `--use_llama`: Whether use llave to achieve sub-sentence identification. If it is False, the code uses ChatGPT for this stage. 
+- `--llama_path`: The model folder for LLaMA 2 7B. Before using it, please convert the model weight into huggingface format. For details, you can refer to [this link](https://huggingface.co/docs/transformers/model_doc/llama2). 
+
 
 ## Data
 The data is given in a json format file. For example, 
