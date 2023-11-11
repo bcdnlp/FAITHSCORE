@@ -20,7 +20,7 @@ If you find FAITHSCORE useful, please cite:
 
 ## Install
 
-1. Install [LLaVA 1.5](https://github.com/haotian-liu/LLaVA) 
+1. Install [LLaVA 1.5](https://github.com/haotian-liu/LLaVA#install)
 2. Install [modelscope](https://modelscope.cn/home);
    ```python
    pip install modelscope
@@ -51,7 +51,7 @@ Parameters for FaithScore class:
 - `model_path`: The model name or model folder for the visual entailment model. If you set vem_type as llava, please set this parameter as the model folder for LLaVA 1.5. You can set it as None for other situations.
 - `api_key`: OpenAI API Key.
 - `llava_path`: The model folder for LLaVA 1.5. 
-- `use_llama`: Whether use llave to achieve sub-sentence identification. If it is False, the code uses ChatGPT for this stage. 
+- `use_llama`: Whether use llama to achieve sub-sentence identification. If it is False, the code uses ChatGPT for this stage. 
 - `llama_path`: The model folder for LLaMA 2 7B. Before using it, please convert the model weight into huggingface format. For details, you can refer to [this link](https://huggingface.co/docs/transformers/model_doc/llama2). 
 
 
