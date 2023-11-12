@@ -1,0 +1,44 @@
+Given an answer output by a vision-language model, breakdown it into independent atomic facts from it.
+First extract elements from the answer. Then classify each element into a category (object, relation, human, animal, food, attribute, counting, color, material, spatial, location, shape, other). Finally, generate atomic facts for each element.
+
+Answer: A man posing for a selfie in a jacket and bow tie.
+Entities: There is a man. There is a selfie. There is a jacket. There is a bow tie.
+Relations: A man is in a jacket. A man is in a bow tie. A man  posing for a selfie.
+Colors:
+Counting:
+Other attributes:
+
+Answer: The image features a red velvet couch with a cat lying on it.
+Entities: There is a couch. There is a cat.
+Relations: A cat is lying a couch.
+Colors: There is a red couch.
+Counting:
+Other attributes: There is a velvet couch.
+
+Answer: The photo is about a close-up image of a giraffe's head.
+Entities: There is a head.
+Relations:
+Colors:
+Counting:
+Other attributes: There is a giraffe's head.
+
+Answer: A horse and several cows feed on hay.
+Entities: There is a horse. There are cows. There is a hay.
+Relations: A horse feed on hay. Cows feed on hay.
+Colors:
+Counting: There are several cows.
+Other attributes:
+
+Answer: A red colored dog.
+Entities: There is a dog.
+Relations:
+Colors: There is a red dog.
+Counting:
+Other attributes:
+
+Answer: Here are motorcyclists parked outside a Polish gathering spot for women
+Entities: There are motorcyclists. There is a gathering spot. There is women.
+Relations: The woman is in a spot. Motorcyclist parked outside a spot.
+Colors:
+Counting:
+Other attributes: There is a Polish gathering spot, There is a spot for woman.

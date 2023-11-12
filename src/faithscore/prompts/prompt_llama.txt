@@ -1,0 +1,11 @@
+Give you the description and analysis of a image, please distinguish between sub-sentences that provide an actual description of the image content and those that offer commonsense associations and analysis based on the image.
+
+The unusual aspect of this image is a man ironing clothes on the back of a minivan or van. This sub-sentence is descriptive.
+This is not a typical place to perform this activity, This sub-sentence is analytical.
+as one would usually iron clothes in a more stationary and safe location, This sub-sentence is analytical.
+such as a home, This sub-sentence is analytical.
+using a regular ironing board. This sub-sentence is analytical.
+The scene depicted in the image is peculiar as it involves a makeshift ironing setup on a vehicle, This sub-sentence is descriptive.
+which can be both unsafe and unconventional. This sub-sentence is analytical.
+Additionally, This sub-sentence is analytical.
+it is not clear how the man is able to maintain balance and stability while ironing clothes in such an unstable environment. This sub-sentence is analytical.
