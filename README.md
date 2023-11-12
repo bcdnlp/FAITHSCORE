@@ -1,9 +1,8 @@
 # FaithScore
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-red.svg)](#python)
 [![arxiv](https://img.shields.io/badge/arXiv-2311.01477-b31b1b.svg)](https://arxiv.org/abs/2311.01477)
-<!-- [![PyPI version factscore](https://badge.fury.io/py/factscore.svg)](https://pypi.python.org/pypi/factscore/) -->
-<!-- [![Downloads](https://pepy.tech/badge/factscore)](https://pepy.tech/project/factscore) -->
-
+[![PyPI version faithscore](https://badge.fury.io/py/faithscore.svg)](https://pypi.python.org/pypi/faithscore/)
+[![Downloads](https://pepy.tech/badge/faithscore)](https://pepy.tech/project/faithscore)
 This is the official release accompanying our paper, [FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models](https://arxiv.org/abs/2311.01477). FAITHSCORE is available as a PIP package as well.
 
 If you find FAITHSCORE useful, please cite:
@@ -18,9 +17,15 @@ If you find FAITHSCORE useful, please cite:
 }
 ```
 
+## Process
+![FAITHSCORE process](faithscore.png)
+
+
 ## Install
 
-1. Install [LLaVA 1.5](https://github.com/haotian-liu/LLaVA#install)
+1. Install [LLaVA 1.5](https://github.com/haotian-liu/LLaVA). 
+   
+   Note that you don't need to download parameter weights of LLaVA 1.5 if you use OFA to realize fact verification. 
 2. Install [modelscope](https://modelscope.cn/home);
    ```python
    pip install modelscope
@@ -51,9 +56,8 @@ Parameters for FaithScore class:
 - `model_path`: The model name or model folder for the visual entailment model. If you set vem_type as llava, please set this parameter as the model folder for LLaVA 1.5. You can set it as None for other situations.
 - `api_key`: OpenAI API Key.
 - `llava_path`: The model folder for LLaVA 1.5. 
-- `use_llama`: Whether use llama to achieve sub-sentence identification. If it is False, the code uses ChatGPT for this stage. 
+- `use_llama`: Whether use llave to achieve sub-sentence identification. If it is False, the code uses ChatGPT for this stage. 
 - `llama_path`: The model folder for LLaMA 2 7B. Before using it, please convert the model weight into huggingface format. For details, you can refer to [this link](https://huggingface.co/docs/transformers/model_doc/llama2). 
-
 
 ## Data
 The data is given in a json format file. For example, 
