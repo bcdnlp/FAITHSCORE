@@ -90,3 +90,27 @@ You can download our [annotation dataset](https://github.com/bcdnlp/FAITHSCORE/b
 ### Automatic Evaluation Data
 You can download our [automatic evaluation datasets](https://drive.google.com/drive/folders/10RyGYrtEdxFC2u8wE_ojeSDslN7CQ4OM?usp=drive_link).
 
+## Leaderboard
+Public LVLM leaderboard computed on LLaVA-1k. 
+
+| Model |  FaithScore | Sentence-level Faithscore |
+|---|---|---|
+| [Multimodal-GPT](https://arxiv.org/abs/2305.04790)                                         | 0.53 | 0.49 |
+| [MiniGPT-4](https://arxiv.org/abs/2304.10592)                                        |  0.57 | 0.65 |
+| [mPLUG-Owl](https://arxiv.org/abs/2304.14178)                    |  0.72 | 0.70 |
+| [InstructBLIP](https://arxiv.org/abs/2305.06500)                  |  0.81 | 0.72 |
+| [LLaVA](https://arxiv.org/abs/2304.08485)                    | 0.84 | 0.73 |
+| [LLaVA-1.5](https://arxiv.org/abs/2310.03744)                           |  0.86 | 0.77 |
+
+
+Public LLM leaderboard computed on  MSCOCO-Cap. 
+
+
+| Model |  FaithScore | Sentence-level Faithscore |
+|---|---|---|
+| [Multimodal-GPT](https://arxiv.org/abs/2305.04790)                                         | 0.54 | 0.63 |
+| [MiniGPT-4](https://arxiv.org/abs/2304.10592)                                        |  0.64 | 0.60 |
+| [mPLUG-Owl](https://arxiv.org/abs/2304.14178)                    |  0.85 | 0.67 |
+| [InstructBLIP](https://arxiv.org/abs/2305.06500)                  |  0.94 | 0.80 |
+| [LLaVA](https://arxiv.org/abs/2304.08485)                    | 0.87 | 0.64 |
+| [LLaVA-1.5](https://arxiv.org/abs/2310.03744)                           |  0.94 | 0.83 |
