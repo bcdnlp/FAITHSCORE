@@ -10,11 +10,11 @@ cur_path = os.path.dirname(path)
 cur_path = os.path.join(cur_path, "faithscore")
 
 
-def load_llama(llava_path, BS=32):
-    tokenizer = AutoTokenizer.from_pretrained(llava_path, max_length=1024, padding="max_length", truncation=True, return_tensors="pt")
+def load_llama(llama_path, BS=32):
+    tokenizer = AutoTokenizer.from_pretrained(llama_path, max_length=1024, padding="max_length", truncation=True, return_tensors="pt")
     quantization_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.bfloat16)
 
-    model = AutoModelForCausalLM.from_pretrained(llava_path, quantization_config=quantization_config)
+    model = AutoModelForCausalLM.from_pretrained(llama_path, quantization_config=quantization_config)
 
     pipeline = transformers.pipeline(
         "text-generation",

@@ -33,7 +33,7 @@ class FaithScore():
         self.llava_path = llava_path
         
         if use_llama:
-            if llava_path and tokenzier_path:
+            if llama_path:
                 self.llama, self.tokenizer = load_llama(llama_path)
             else:
                 print(f"Error: please input the model path for llama")
@@ -207,6 +207,7 @@ class FaithScore():
         #     output = blip_2(image, prompt, model, vis_processors_blip_2)
         
         fact_scores = []
+        atomic_facts = [[f for f in sublist if f != []] for sublist in atomic_facts]
         lengths = [len([s for s in sublist if s != []]) for sublist in atomic_facts]
         lengths_2 = [[len(s) for s in sublist if s != []] for sublist in atomic_facts]
         flatten_attomic_facts = [item for sublist in atomic_facts for item in sublist if item != []]
@@ -214,7 +215,7 @@ class FaithScore():
         images = [[images[i]]*sum(lengths_2[i]) for i in range(len(images))]
         flattened_images = [item for sublist in images for item in sublist]
         BS = 16
-        for idx in range(0,len(flatten_attomic_facts), BS):
+        for idx in tqdm(range(0,len(flatten_attomic_facts), BS)):
             facts = flatten_attomic_facts[idx:idx+BS]
             if img_path:
                 image = [os.path.join(img_path, flattened_images[j]) for j in range(idx, min(idx+BS, len(flattened_images)))]
@@ -262,12 +263,20 @@ class FaithScore():
         unflattented_fact_scores = []
         results = {}
         index = 0
-        for i,length in enumerate(lengths):
-            unflattented_fact_scores.append(fact_scores[index:index+length])
-            results[i] = sum(fact_scores[index:index+length])/length if length > 0 else 0
-            index += length
+        for i,length in enumerate(lengths_2):
+            unflattented_fact_scores.append(fact_scores[index:index+sum(length)])
+            results[i] = sum(unflattented_fact_scores[i])/sum(length) if sum(length) > 0 else 0
 
-        instance_score = [sum(ii) / len(ii) if len(ii) > 0 else 0 for ii in unflattented_fact_scores]
+            index += sum(length)
+            
+        # unflattented_fact_scores = []
+        # index = 0
+        # for i, length in enumerate(lengths):
+        #     unflattented_fact_scores.append(unflattented_fact_scores_2[index:index+length])
+        #     index += length
+            instance_score = [sum([iii for iii in ii]) / len([iii for iii in ii]) if len([iii for iii in ii]) > 0 else 0 for ii in unflattented_fact_scores]
+
+        # instance_score = [sum([iiii for iii in ii for iiii in iii]) / len([iiii for iii in ii for iiii in iii]) if len([iiii for iii in ii for iiii in iii]) > 0 else 0 for ii in unflattented_fact_scores]
         # print("Overall score: ", sum(instance_score) / len(instance_score))
 
         return sum(instance_score) / len(instance_score), unflattented_fact_scores, results
@@ -290,22 +299,27 @@ class FaithScore():
         Entities_recog = []
         for ents in Entities:
             entities = []
-            for ent in ents:
+            ents = [ee for e in ents for ee in e ]
+            for e in ents:
                 ent4sen = []
-                sentence = nltk.sent_tokenize(ent)
+                sentence = nltk.sent_tokenize(e)
                 tags = nltk.pos_tag(nltk.word_tokenize(sentence[0]))
                 for tag in tags:
                     if tag[1] in ['NN', 'NNS', 'JJ', 'NNP', 'VBG', 'JJR', 'NNPS', 'RB', 'DT']:
                         # print(tag)
                         ent4sen.append(tag[0])
+                    else:
+                        ent4sen.append("")
                     # tags.append(chunk.label())
+
                 if len(ent4sen) < 1:
                     print(tags)
-                    exit()
+                    ent4sen.append("")
+                    # exit()
+                
                 entities.append(ent4sen[-1])
 
-            # print(ents)
-            # print(entities)
+
             if len(entities) != len(ents):
                 print("error")
                 exit()
@@ -316,6 +330,14 @@ class FaithScore():
         color_scores = []
         count_scores = []
         other_scores = []
+        
+        clean_empty = lambda x: [ii for i in x for ii in i if i]
+        Entities = [clean_empty(e) for e in Entities]
+        Relations = [clean_empty(r) for r in Relations]
+        Colors = [clean_empty(c) for c in Colors]
+        Counting = [clean_empty(c) for c in Counting]
+        Others = [clean_empty(o) for o in Others]
+        
 
         for i in range(len(fact_scores)):
             entity_scores.append(fact_scores[i][:len(Entities[i])])
@@ -331,12 +353,11 @@ class FaithScore():
 
         sentence_scores = []
         results = {}
+        
         for id1, ins in enumerate(all_texts):
             sentence_score = []
             for id2, sub_sen in enumerate(all_texts[id1]):
                 flag = True
-                # print(Entities_recog)
-                # print(entity_scores)
                 for id3, ee in enumerate(Entities_recog[id1]):
                     if ee in sub_sen and entity_scores[id1][id3] != 1:
                         flag = False
@@ -368,15 +389,16 @@ class FaithScore():
         all_texts = []
         for ss in des_ana:
             desc = []
-            pos_des = [substr.start() for substr in re.finditer("[D]", ss)]
-            pos_ana = [substr.start() for substr in re.finditer("[A]", ss)]
-            pos_seg = pos_des + pos_ana
-            pos_seg.sort()
-            for i in range(len(pos_seg)):
-                if pos_seg[i] in pos_des:
-                    if i == 0:
-                        desc.append(ss[:pos_seg[i] - 1])
-                    else:
-                        desc.append(ss[pos_seg[i - 1] + 3:pos_seg[i] - 1])
+            for sss in ss:
+                pos_des = [substr.start() for substr in re.finditer("[D]", sss)]
+                pos_ana = [substr.start() for substr in re.finditer("[A]", sss)]
+                pos_seg = pos_des + pos_ana
+                pos_seg.sort()
+                for i in range(len(pos_seg)):
+                    if pos_seg[i] in pos_des:
+                        if i == 0:
+                            desc.append(sss[:pos_seg[i] - 1])
+                        else:
+                            desc.append(sss[pos_seg[i - 1] + 3:pos_seg[i] - 1])
             all_texts.append(desc)
         return all_texts
