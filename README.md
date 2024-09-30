@@ -4,17 +4,19 @@
 [![PyPI version faithscore](https://badge.fury.io/py/faithscore.svg)](https://pypi.python.org/pypi/faithscore/)
 [![Downloads](https://pepy.tech/badge/faithscore)](https://pepy.tech/project/faithscore)
 
-This is the official release accompanying our paper, [FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models](https://arxiv.org/abs/2311.01477). FAITHSCORE is available as a PIP package as well.
+This is the official release accompanying our paper, [FaithScore: Fine-grained Evaluations of Hallucinations in Large Vision-Language Models
+](https://arxiv.org/abs/2311.01477). FAITHSCORE is available as a PIP package as well.
 
 If you find FAITHSCORE useful, please cite:
 ```
-@misc{faithscore,
-      title={FAITHSCORE: Evaluating Hallucinations in Large Vision-Language Models}, 
-      author={Liqiang Jing and Ruosen Li and Yunmo Chen and Mengzhao Jia and Xinya Du},
-      year={2023},
+@misc{jing2024faithscorefinegrainedevaluationshallucinations,
+      title={FaithScore: Fine-grained Evaluations of Hallucinations in Large Vision-Language Models}, 
+      author={Liqiang Jing and Ruosen Li and Yunmo Chen and Xinya Du},
+      year={2024},
       eprint={2311.01477},
       archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2311.01477}, 
 }
 ```
 
