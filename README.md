@@ -5,7 +5,7 @@
 [![Downloads](https://pepy.tech/badge/faithscore)](https://pepy.tech/project/faithscore)
 
 This is the official release accompanying our paper, [FaithScore: Fine-grained Evaluations of Hallucinations in Large Vision-Language Models
-](https://arxiv.org/abs/2311.01477). FAITHSCORE is available as a PIP package as well.
+](https://aclanthology.org/2024.findings-emnlp.290/). FAITHSCORE is available as a PIP package as well.
 
 If you find FAITHSCORE useful, please cite:
 ```
