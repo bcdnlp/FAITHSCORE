@@ -9,14 +9,22 @@ This is the official release accompanying our paper, [FaithScore: Fine-grained E
 
 If you find FAITHSCORE useful, please cite:
 ```
-@misc{jing2024faithscorefinegrainedevaluationshallucinations,
-      title={FaithScore: Fine-grained Evaluations of Hallucinations in Large Vision-Language Models}, 
-      author={Liqiang Jing and Ruosen Li and Yunmo Chen and Xinya Du},
-      year={2024},
-      eprint={2311.01477},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2311.01477}, 
+@inproceedings{jing-etal-2024-faithscore,
+    title = "{F}aith{S}core: Fine-grained Evaluations of Hallucinations in Large Vision-Language Models",
+    author = "Jing, Liqiang  and
+      Li, Ruosen  and
+      Chen, Yunmo  and
+      Du, Xinya",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2024",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-emnlp.290",
+    pages = "5042--5063"
 }
 ```
 
