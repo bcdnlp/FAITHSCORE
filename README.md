@@ -9,14 +9,12 @@ This is the official release accompanying our paper, [FaithScore: Fine-grained E
 
 If you find FAITHSCORE useful, please cite:
 ```
-@misc{zhang2025finegrainedexplainablefactualityevaluation,
-      title={Fine-grained and Explainable Factuality Evaluation for Multimodal Summarization}, 
-      author={Yue Zhang and Jingxuan Zuo and Liqiang Jing},
-      year={2025},
-      eprint={2402.11414},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2402.11414}, 
+@inproceedings{jing2024faithscore,
+  title={Faithscore: Fine-grained evaluations of hallucinations in large vision-language models},
+  author={Jing, Liqiang and Li, Ruosen and Chen, Yunmo and Du, Xinya},
+  booktitle={Findings of the Association for Computational Linguistics: EMNLP 2024},
+  pages={5042--5063},
+  year={2024}
 }
 ```
 
