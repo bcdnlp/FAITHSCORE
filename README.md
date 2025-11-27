@@ -9,22 +9,14 @@ This is the official release accompanying our paper, [FaithScore: Fine-grained E
 
 If you find FAITHSCORE useful, please cite:
 ```
-@inproceedings{jing-etal-2024-faithscore,
-    title = "{F}aith{S}core: Fine-grained Evaluations of Hallucinations in Large Vision-Language Models",
-    author = "Jing, Liqiang  and
-      Li, Ruosen  and
-      Chen, Yunmo  and
-      Du, Xinya",
-    editor = "Al-Onaizan, Yaser  and
-      Bansal, Mohit  and
-      Chen, Yun-Nung",
-    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2024",
-    month = nov,
-    year = "2024",
-    address = "Miami, Florida, USA",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2024.findings-emnlp.290",
-    pages = "5042--5063"
+@misc{zhang2025finegrainedexplainablefactualityevaluation,
+      title={Fine-grained and Explainable Factuality Evaluation for Multimodal Summarization}, 
+      author={Yue Zhang and Jingxuan Zuo and Liqiang Jing},
+      year={2025},
+      eprint={2402.11414},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2402.11414}, 
 }
 ```
 
@@ -124,3 +116,4 @@ Public LLM leaderboard computed on  MSCOCO-Cap.
 | [InstructBLIP](https://arxiv.org/abs/2305.06500)                  |  0.94 | 0.80 |
 | [LLaVA](https://arxiv.org/abs/2304.08485)                    | 0.87 | 0.64 |
 | [LLaVA-1.5](https://arxiv.org/abs/2310.03744)                           |  0.94 | 0.83 |
+
